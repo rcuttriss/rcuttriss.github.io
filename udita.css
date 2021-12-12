@@ -82,19 +82,33 @@ a {
     position: relative;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--boring-grey-bg-color);
     padding: var(--padding-common);
 }
 #uditaPic {
     position: relative;
-    width: 31vw;
+    width: 45%;
+    height: auto;
+    min-width: 600px;
     border-radius: 15%;
-    box-shadow: 2px 2px 25px 3px black;
+    box-shadow: 2px 2px 25px 2px black;
+    transition: transform .1s ease-in, box-shadow .1s ease-in, outline .1s ease-in;
 }
+#uditaPic:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 2px 2px 30px 10px black;
+    outline: 1px solid black;
+}
+
 #namePlate {
-    max-width: 45%;
+    width: 45%;
     padding-top: 100px;
     margin-right: auto;
+    transition: transform .1s ease-in;
+}
+#namePlate:hover {
+    transform: translate(-5px, -5px);
 }
 #namePlate h1 {
     font-size: 72px;
@@ -149,7 +163,7 @@ a {
 }
 .resumeSectionHeader{
     position: relative;
-    left: 150px;
+    padding-left: 5vw;
     text-decoration: underline;
     text-decoration-color: var(--alt-red-color);
     text-decoration-thickness: .25rem;
@@ -189,6 +203,10 @@ a {
     font-family: 'Carattere';
     text-decoration: underline;
     text-decoration-color: var(--alt-red-color);
+    transition: transform .1s ease-in;
+}
+#projects h1:hover {
+    transform: translate(-5px, -5px);
 }
 
 #showCase {
@@ -220,14 +238,15 @@ a {
 }
 
 #aboutRed {
+    width: 100%;
     color: white;
     background-color: var(--alt-red-color);
-    width: 100%;
 }
 #aboutFlex {
+    height: 100%;
     display: flex;
     align-items: center;
-    padding: 10px 15% 10px 15%;
+    padding: 10px 15% 0px 15%;
 }
 #aboutHeader {
     margin-right: auto;
