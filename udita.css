@@ -82,6 +82,7 @@ a {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     background-color: var(--boring-grey-bg-color);
     padding: var(--padding-common);
@@ -89,8 +90,8 @@ a {
 #uditaPic {
     position: relative;
     width: 45%;
+    min-width: 500px;
     height: auto;
-    min-width: 600px;
     border-radius: 15%;
     box-shadow: 2px 2px 25px 2px black;
     transition: transform .1s ease-in, box-shadow .1s ease-in, outline .1s ease-in;
