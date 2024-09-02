@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
+    <html lang="en" className="no-scrollbar">
+      <body className={`flex justify-center ${roboto.className}`}>
         <Header></Header>
         {children}
       </body>
