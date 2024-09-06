@@ -7,7 +7,7 @@ type Props = {
 
 function ProjectCard({ image, title }: Readonly<Props>) {
   return (
-    <div className="z-10 h-full w-full items-center justify-center justify-items-center overflow-hidden">
+    <div className="z-10 h-full w-full max-w-[600px] items-center justify-center justify-items-center overflow-hidden">
       <div
         className="h-full w-full bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${image.src})` }}

@@ -7,7 +7,7 @@ type Props = {};
 
 function Header({}: Props) {
   return (
-    <div className="text-codegreen absolute top-0 z-10 mt-10 flex w-auto justify-center gap-8 rounded-sm bg-purple-900 bg-opacity-20 bg-contain bg-clip-padding px-6 py-4 text-lg backdrop-blur-xl">
+    <div className="absolute top-0 z-10 mt-10 flex w-auto justify-center gap-8 rounded-sm bg-purple-900 bg-opacity-20 bg-contain bg-clip-padding px-6 py-4 text-lg text-codegreen backdrop-blur-xl">
       <Link
         className="hover:scale-150 hover:px-6"
         href={"/RESUME"}
@@ -24,15 +24,6 @@ function Header({}: Props) {
         data-value="PROJECTS"
       >
         PROJECTS
-      </Link>
-      <span>/</span>
-      <Link
-        className="hover:scale-150 hover:px-6"
-        href={"/BLOG"}
-        onPointerEnter={onPointerEnter}
-        data-value="BLOG"
-      >
-        BLOG
       </Link>
       <span>/</span>
       <Link
@@ -69,6 +60,6 @@ function onPointerEnter(event: any) {
 
     iteration += 1 / 6;
   }, 30);
+  
 }
-
 export default Header;

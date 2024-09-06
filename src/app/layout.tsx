@@ -5,7 +5,6 @@ const roboto = Roboto_Mono({
   subsets: ["latin"],
 });
 import "./globals.css";
-import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="no-scrollbar">
       <body className={`flex justify-center ${roboto.className}`}>
-        <Header></Header>
         {children}
       </body>
     </html>

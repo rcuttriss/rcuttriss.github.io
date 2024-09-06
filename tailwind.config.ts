@@ -11,12 +11,35 @@ const config: Config = {
     extend: {
       animation: {
         "background-pan": "background-pan 3s ease-in-out infinite",
-        "float-up": "float-up 24s ease-in-out alternate infinite",
+        "float-up": "float-up 18s ease-in-out alternate infinite",
+        "shift-left":
+          "shift-left 4s cubic-bezier(.16,1.73,.77,.13) alternate infinite",
+        "shift-right":
+          "shift-right 4s cubic-bezier(.16,1.73,.77,.13) alternate infinite",
+        "float-still": "float-still 8s ease-in-out infinite",
+        blink: "blink 1s infinite",
       },
       animationDelay: {
-        "2s": "2s",
-        "4s": "4s",
-        "6s": "6s",
+        "0": "0s",
+        "1": "1s",
+        "2": "2s",
+        "3": "3s",
+        "4": "4s",
+        "5": "5s",
+        "6": "6s",
+        "7": "7s",
+        "8": "8s",
+        "10": "10s",
+        "11": "11s",
+        "12": "12s",
+        "13": "13s",
+        "14": "14s",
+        "15": "15s",
+        "16": "16s",
+        "17": "17s",
+        "18": "18s",
+        "19": "19s",
+        "20": "20s",
       },
       keyframes: {
         "background-pan": {
@@ -74,17 +97,41 @@ const config: Config = {
             transform: "translateX(-50px) translateY(-2000px) rotate(0deg)",
           },
         },
+        "shift-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-500%)" },
+        },
+        "shift-right": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(500%)" },
+        },
+        "float-still": {
+          "0%": { transform: "translateX(0) translateY(0)" },
+          "25%": { transform: "translateX(1) translateY(-1.5%)" },
+          "50%": { transform: "translateX(1%) translateY(1%)" },
+          "75%": { transform: "translateX(2%) translateY(1%)" },
+          "100%": { transform: "translateX(0) translateY(0)" },
+        },
+        blink: {
+          "0%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
       },
       dropShadow: {
         rxl: "4px 20px 10px rgba(0, 0, 0,  0.40)",
       },
       height: {
         halfscreen: "50vh",
+        screenx1_25: "125vh",
         screenx1_5: "150vh",
         screenx2: "200vh",
-      },
-      gridTemplateColumns: {
-        "60/40": "60% 40%",
       },
       backgroundPosition: {
         meImg: "70% 30%",
@@ -99,13 +146,23 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      transitionTimingFunction: {
+        in_expo: "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
+        out_expo: "cubic-bezier(0.19, 1, 0.22, 1)",
+      },
       colors: {
-        mainpurple: "#771795",
-        codegreen: "#33ff00",
-        sharpred: "#c52233",
-        accentorange: "#ff934f",
+        maindark: "#1e301e",
+        maindarker: "#2b302a",
+        maingreen: "#7de980",
+        accentgreen: "#3fdc44",
+        darkergreen: "#2b5b2b",
+        secondarypurple: "#5a2975",
+        altpurple: "#7f6a93",
+        maingray: "#6e8898",
         accentlavender: "#e7e6f7",
-        accentgray: "#706563",
+        mainorange: "#fd981d",
+        secondarydark: "#7f4c18",
+        secondarydarker: "#3d2e1c",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -145,6 +202,11 @@ const config: Config = {
           "3": "hsl(var(--chart-3))",
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
+        },
+        textShadow: {
+          sm: "0 1px 2px rgba(255, 255, 255, 1)",
+          DEFAULT: "0 2px 4px var(--tw-shadow-color)",
+          lg: "0 8px 16px rgba(255, 255, 255, 1)",
         },
       },
     },

@@ -1,5 +1,5 @@
-import { Roboto } from "next/font/google";
-const roboto = Roboto({
+import { VT323 } from "next/font/google";
+const font = VT323({
   weight: "400",
   subsets: ["latin"],
 });
@@ -13,41 +13,88 @@ import blackjackImg from "@images/blackjack.jpg";
 import MeCard from "@/components/MeCard";
 
 import ProjectCard from "@/components/ProjectCard";
+import BackgroundFloaters from "@/components/BackgroundFloaters";
+import BackgroundPairs from "@/components/BackgroundPairs";
+import BackgroundCodeBlock from "@/components/BackgroundCodeBlock/BackgroundCodeBlock";
 
 export default function Home() {
   return (
     <main className="w-full">
       <section
-        className={`text-accentlavender flex flex-col items-center bg-transparent ${roboto.className} h-screen justify-center overflow-hidden`}
+        className={`bg-maindark flex flex-col items-center text-accentlavender ${font.className} h-screen justify-center overflow-hidden`}
       >
-        <div className="h-full w-full overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute -z-10 w-screen overflow-hidden object-cover"
-          >
-            <source src="/videos/purple_bg.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <div className="h-full w-full overflow-hidden"></div>
         <MeCard />
       </section>
       <section
-        className={`w-screengap-12 relative flex flex-col items-center ${roboto.className} bg-accentlavender h-screenx1_5 z-10 min-h-screen justify-center gap-12 overflow-hidden bg-cover py-40`}
+        className={`flex w-full flex-col items-center gap-12 ${font.className} text-mainorange bg-secondarydarker h-[110vh] justify-center gap-12 overflow-hidden py-20`}
       >
-        <div
-          id="floating-circle"
-          className="animate-float-up -z-5 absolute -bottom-52 left-52 h-32 w-32 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 blur-lg"
-        ></div>
-        <div
-          id="floating-square"
-          className="animate-float-up -z-5 delay-2s from-accentorange absolute -bottom-52 right-96 h-32 w-32 bg-gradient-to-r via-slate-500 to-blue-700 blur-lg"
-        ></div>
-        <div
-          id="floating-triangle"
-          className="animate-float-up -z-5 delay-6s absolute -bottom-52 left-1/2 h-32 w-32 border-b-[100px] border-l-[50px] border-r-[50px] border-b-blue-500 border-l-transparent border-r-transparent blur-lg"
-        ></div>
-        <div className="text-8xl text-black">PROJECTS</div>
+        <div className="z-10 px-12 py-8 text-8xl">
+          EXPERIENCE<span className="animate-blink text-8xl">&#9608;</span>
+        </div>
+        <div className="flex h-full w-full content-center items-center justify-center">
+          <div className="z-100 flex w-7/12 max-w-[1020px] flex-col items-center gap-8 px-40">
+            <div className="relative grid w-full grid-cols-[20%_80%] items-center gap-8 px-12 py-8">
+              <img
+                src="/images/uci.jpg"
+                alt=""
+                className="w-sm h-full rounded-md"
+              />
+              <div className="flex h-full w-full flex-col justify-center">
+                <div className="mb-2 text-3xl">
+                  University of California, Irvine
+                </div>
+                <div>2016 - 2020</div>
+                <div>Bachelors of Science in Computer Science</div>
+                <div>
+                  Donald Bren School of Information and Computer Sciences
+                </div>
+              </div>
+            </div>
+            <div className="grid w-full grid-cols-[20%_80%] grid-rows-1 items-center gap-8 px-12 py-8">
+              <img
+                src="/images/eq.jpg"
+                alt=""
+                className="w-sm h-full rounded-md"
+              />
+              <div className="flex h-full w-full flex-col">
+                <div className="mb-2 text-3xl">eQ Technologic </div>
+                <div>October 2020 - August 2022</div>
+                <div>Software Engineer - Level 2</div>
+                <div>Java, JavaScript, Python, MySQL</div>
+              </div>
+            </div>
+            <div className="grid w-full grid-cols-[20%_80%] grid-rows-1 items-center gap-8 px-12 py-8">
+              <img
+                src="/images/amazon.png"
+                alt=""
+                className="w-sm h-full rounded-md"
+              />
+              <div>
+                <div className="mb-2 text-3xl">Amazon Lab126</div>
+                <div>August 2022 - June 2023</div>
+                <div>SDE - Level 4</div>
+                <div>Java, C++, Android</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <BackgroundCodeBlock
+          twClasses="left-0 text-[#ac5c10]"
+          strNum={0}
+        ></BackgroundCodeBlock>
+        <BackgroundCodeBlock
+          twClasses="right-52 text-[#ac5c10]"
+          strNum={1}
+        ></BackgroundCodeBlock>
+      </section>
+      <section
+        className={`relative flex w-screen flex-col items-center gap-12 ${font.className} bg-maindarker z-10 h-screenx1_5 min-h-screen justify-center gap-12 overflow-hidden bg-cover py-32`}
+      >
+        <BackgroundFloaters />
+        <BackgroundPairs />
+
+        <div className="text-accentgreen z-10 text-8xl">PROJECTS</div>
         <div
           id="CardBox"
           className="relative grid h-full w-3/5 grid-cols-2 justify-items-center gap-4"
