@@ -3,7 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faGoogle,
+} from "@fortawesome/free-brands-svg-icons";
 
 type Props = {};
 
@@ -19,7 +24,7 @@ function MeCard({}: Props) {
   function codeWordEffect(element: HTMLElement) {
     if (!element) return;
 
-    const dataStr = element.getAttribute("data-str");
+    const dataStr: string = element.getAttribute("data-str")!;
     if (!dataStr) return;
 
     const originalStrArr: string[] = dataStr.split(" "); // Original words array
@@ -52,7 +57,7 @@ function MeCard({}: Props) {
           .join("");
       }
 
-      iteration += 1 / 8;
+      iteration += 1 / 5;
 
       // Update the inner text of the element
       element.innerText = elementWords.join(" ");
@@ -67,13 +72,13 @@ function MeCard({}: Props) {
   return (
     <div
       id="meCard"
-      className={`text-maingreen absolute grid h-2/3 w-2/3 grid-cols-[40%,60%] items-center justify-center`}
+      className={`absolute grid h-2/3 w-2/3 grid-cols-[40%,60%] items-center justify-center text-maingreen`}
     >
       <div
         id="asciiArt"
-        className="animate-float-still flex h-full w-full items-center justify-center overflow-hidden text-[9px]"
+        className="flex h-full w-full animate-float-still items-center justify-center overflow-hidden text-[9px]"
       >
-        <pre className="from-maingreen to-maingreen animate-background-pan bg-gradient-to-r via-white bg-[length:400%] bg-clip-text text-transparent">
+        <pre className="animate-background-pan bg-gradient-to-r from-maingreen via-white to-maingreen bg-[length:100%] bg-clip-text text-transparent">
           :::::::::::::::::::::::::::::::::::::...............................................................
           <br />
           :::::::::::::::::::::::::::::::::::::::.............................................................
@@ -163,17 +168,17 @@ function MeCard({}: Props) {
           <br />
         </pre>
       </div>
-      <div className="flex h-full w-full flex-col justify-center rounded-2xl px-20">
+      <div className="flex h-full w-full flex-col justify-center px-20">
         <div className="flex gap-4 text-5xl">
-          <span className="from-maingreen to-maingreen animate-background-pan bg-gradient-to-r via-white bg-[length:200%] bg-clip-text text-transparent">
-            &#9655;
+          <span className="animate-background-pan bg-gradient-to-r from-altpurple via-white to-altpurple bg-[length:200%] bg-clip-text text-transparent">
+            &#62;
           </span>
           <span>
             Hi, my name is{" "}
             <span
               id="myName"
               data-str="ROBBY"
-              className="to-maingreen from-maingreen animate-background-pan bg-gradient-to-r via-white bg-[length:400%] bg-clip-text text-transparent"
+              className="animate-background-pan bg-gradient-to-r from-maingreen via-white to-maingreen bg-[length:200%] bg-clip-text text-transparent"
             >
               ROBBY
             </span>
@@ -181,18 +186,29 @@ function MeCard({}: Props) {
         </div>
         <div
           id="myDesc"
-          data-str="Backend Software Engineer with 3 years of experience specializing in Python, Java, and C++. Proven track record in improving efficiency and accuracy at Amazon Lab126. Actively expanding skill set into front-end technologies with hands-on projects"
-          className="text-maingreen my-4 flex bg-white bg-clip-text text-2xl"
+          data-str="Backend Software Engineer with 3 years of experience specializing in Python, Java, and C++. Proven track record in improving efficiency and accuracy at Amazon Lab126. Actively expanding skill set into front-end technologies with hands-on projects."
+          className="my-4 flex bg-white bg-clip-text text-2xl text-maingreen"
         >
-          Lvtdzzw Fdsuwhdfr Ehgisxlmtz wgyrh 3 ylixsy lf wltsgbswwk xykivlvksnm
-          gk Uybnlw, Gbue, syv N++. Fthvh cbsfdw hzuqrkhp gr tfnzjykf xpdzkrvbyf
-          vjs fnaylwhs md Lvlxms Iyb689. Kkkdwjsl xrihksib shti lfw oxnws-wwtm
-          nsukzpvzyppg lwjz phma-kr sujeyjtkz.
+          Pthnown Ziwndhre Whfyuehr odwp 3 lfghe xx irthwemdhq irthwemdhqdw lo
+          Mfhown, mfyt, lahs J++. Mlfmen klfth mfueopq lz mdheytiop irthwemdhq
+          but majdhrjw hg Gjghf Kww126. Ukghuieu lakdyeteq nbmgh poi fhqp
+          hxyct-hjd plahfgteryux mnbh ghty-ii bdteghqu.
         </div>
-        <Button className="bg-secondarypurple mt-4 flex h-12 max-h-12 w-1/2 items-center justify-center gap-2 self-start overflow-hidden text-2xl">
-          <FontAwesomeIcon icon={faDownload} className="h-5/6" />
-          <span>Download Resume (.pdf)</span>
-        </Button>
+        <div className="mt-4 flex h-20 w-full items-center justify-start gap-2">
+          <Button className="flex h-2/3 w-1/2 items-center justify-center gap-2 bg-secondarypurple text-2xl hover:bg-accentgreen hover:text-black">
+            <FontAwesomeIcon icon={faDownload} className="h-5/6" />
+            <span>Download Resume (.pdf)</span>
+          </Button>
+          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-red-600 hover:text-black">
+            <FontAwesomeIcon icon={faEnvelope} className="w-ful h-full" />
+          </Button>
+          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-white hover:text-black">
+            <FontAwesomeIcon icon={faGithub} className="w-ful h-full" />
+          </Button>
+          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-[#2596be] hover:text-black">
+            <FontAwesomeIcon icon={faLinkedin} className="w-ful h-full" />
+          </Button>
+        </div>
       </div>
     </div>
   );

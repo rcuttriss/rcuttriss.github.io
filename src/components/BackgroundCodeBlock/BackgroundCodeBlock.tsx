@@ -9,7 +9,7 @@ type Props = {
   strNum: number;
 };
 
-function BackgroundCodeBlock({ twClasses, strNum }: Props) {
+function BackgroundCodeBlock({ twClasses, strNum }: Readonly<Props>) {
   useEffect(() => {
     const codeBlock = document.getElementById(`codeBlock-${strNum}`)!;
     typeAnimation(codeBlock, strNum);
@@ -21,7 +21,7 @@ function BackgroundCodeBlock({ twClasses, strNum }: Props) {
     let iteration: number = 0;
 
     setInterval(() => {
-      const codeBlockStr = codeBlockStrings[codeBlockIndex];
+      const codeBlockStr: string = codeBlockStrings[codeBlockIndex];
 
       element.innerHTML = element.innerHTML.slice(0, -1);
       element.innerText += codeBlockStr.charAt(iteration++);
@@ -32,17 +32,17 @@ function BackgroundCodeBlock({ twClasses, strNum }: Props) {
 
       // When the block is finished, switch to the next block
       if (iteration >= codeBlockStr.length) {
-        codeBlockIndex = (codeBlockIndex + 2) % codeBlockStrings.length;
+        codeBlockIndex = (codeBlockIndex + 1) % codeBlockStrings.length;
         element.innerText = "";
         iteration = 0;
       }
-    }, 10);
+    }, 50);
   }
 
   return (
     <div
       id={`codeBlock-${strNum}`}
-      className={`${twClasses} absolute max-h-[100vh] overflow-y-auto`}
+      className={`${twClasses} absolute max-h-[100vh] overflow-y-auto blur-sm`}
       style={{
         whiteSpace: "pre",
         overflowY: "auto",
@@ -50,7 +50,7 @@ function BackgroundCodeBlock({ twClasses, strNum }: Props) {
         msOverflowStyle: "none", // Hide scrollbar in IE and Edge
       }}
       onWheel={(e) => e.preventDefault()} // Disable mouse wheel scrolling
-      onTouchMove={(e) => e.preventDefault()}
+      onTouchMove={(e) => e.preventDefault()} // Disable touch scrolling
     ></div>
   );
 }
