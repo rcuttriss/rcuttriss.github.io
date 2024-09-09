@@ -93,12 +93,12 @@ export default function Home() {
         ></BackgroundCodeBlock>
       </section>
       <section
-        className={`bg-cooldark relative z-10 flex h-[135vh] w-full flex-col items-center justify-center gap-12 overflow-hidden bg-cover py-20 ${font.className}`}
+        className={`relative z-10 flex h-[135vh] w-full flex-col items-center justify-center gap-12 overflow-hidden bg-cooldark bg-cover py-20 ${font.className}`}
       >
-        <div className="text-coolgrey z-10 text-8xl">PROJECTS</div>
+        <div className="z-10 text-8xl text-coolgrey">PROJECTS</div>
         <div
           id="CardBox"
-          className="border-coolgrey relative z-10 grid h-full w-2/3 grid-cols-2 justify-items-center gap-6 overflow-hidden border-2 px-32 py-20"
+          className="relative z-10 grid h-full w-2/3 grid-cols-2 justify-items-center gap-6 overflow-hidden border-2 border-coolgrey px-32 py-20"
         >
           <ProjectCard image={chessImg} title={"Chess Game"} />
           <ProjectCard image={pokemonImg} title={"Pokemon Tinder Clone"} />

@@ -1,7 +1,9 @@
 "use client";
 
+// react imports
 import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+
+// font awesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -10,9 +12,21 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 
+// shadcn components imports
+import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useToast } from "@hooks/use-toast";
+
 type Props = {};
 
 function MeCard({}: Props) {
+  const { toast } = useToast();
+
   useEffect(() => {
     const myName: HTMLElement = document.getElementById("myName")!;
     const myDesc: HTMLElement = document.getElementById("myDesc")!;
@@ -20,6 +34,15 @@ function MeCard({}: Props) {
     codeWordEffect(myName);
     codeWordEffect(myDesc);
   }, []);
+
+  const copyEmail = async () => {
+    const email = "cuttriss.r@gmail.com";
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch (error) {
+      console.error("Failed to copy the email:", error);
+    }
+  };
 
   function codeWordEffect(element: HTMLElement) {
     if (!element) return;
@@ -195,19 +218,61 @@ function MeCard({}: Props) {
           hxyct-hjd plahfgteryux mnbh ghty-ii bdteghqu.
         </div>
         <div className="mt-4 flex h-20 w-full items-center justify-start gap-2">
-          <Button className="flex h-2/3 w-1/2 items-center justify-center gap-2 bg-secondarypurple text-2xl hover:bg-accentgreen hover:text-black">
-            <FontAwesomeIcon icon={faDownload} className="h-5/6" />
-            <span>Download Resume (.pdf)</span>
-          </Button>
-          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-red-600 hover:text-black">
-            <FontAwesomeIcon icon={faEnvelope} className="w-ful h-full" />
-          </Button>
-          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-white hover:text-black">
-            <FontAwesomeIcon icon={faGithub} className="w-ful h-full" />
-          </Button>
-          <Button className="h-2/3 w-1/5 bg-darkergreen hover:bg-[#2596be] hover:text-black">
-            <FontAwesomeIcon icon={faLinkedin} className="w-ful h-full" />
-          </Button>
+          <a
+            className="flex h-2/3 w-1/2 items-center justify-center"
+            href="files/RobertCuttrissResume2024.pdf"
+            download={"RobertCuttrissResume2024.pdf"}
+            target="_blank"
+          >
+            <Button className="flex h-full w-full items-center justify-center gap-2 rounded-none bg-secondarypurple text-2xl hover:rounded-sm hover:bg-accentgreen hover:text-black">
+              <FontAwesomeIcon icon={faDownload} className="h-5/6" />
+              <span>Download Resume (.pdf)</span>
+            </Button>
+          </a>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex h-2/3 w-1/5 items-center justify-center bg-darkergreen text-white transition-colors hover:rounded-sm hover:bg-red-600 hover:text-maindarker">
+              <FontAwesomeIcon icon={faEnvelope} className="h-[70%]" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-maindarker text-maingreen">
+              <DropdownMenuItem
+                onClick={() => {
+                  copyEmail();
+                  toast({
+                    title: "Copied Email",
+                    duration: 3000,
+                    description: '"cuttriss.r@gmail.com" copied to clipboard',
+                  });
+                }}
+              >
+                Copy Email Address
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {}}>
+                <a href="mailto:cuttriss.r@gmail.com?subject=Hello from _____">
+                  Email Directly
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <a
+            href="https://github.com/rcuttriss"
+            className="h-2/3 w-1/5"
+            target="_blank"
+          >
+            <Button className="h-full w-full rounded-none bg-darkergreen hover:rounded-sm hover:bg-white hover:text-maindarker">
+              <FontAwesomeIcon icon={faGithub} className="h-full w-full" />
+            </Button>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/rcuttriss/"
+            className="h-2/3 w-1/5"
+            target="_blank"
+          >
+            <Button className="h-full w-full rounded-none bg-darkergreen hover:rounded-sm hover:bg-[#2596be] hover:text-maindarker">
+              <FontAwesomeIcon icon={faLinkedin} className="h-full w-full" />
+            </Button>
+          </a>
         </div>
       </div>
     </div>
