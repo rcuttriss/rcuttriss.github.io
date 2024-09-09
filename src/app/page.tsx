@@ -4,44 +4,44 @@ const font = VT323({
   subsets: ["latin"],
 });
 
-import chessImg from "@images/chess.jpg";
-import charSheetImg from "@images/dndcharsheet.jpg";
-import rpsImg from "@images/rps.jpg";
-import stocksImg from "@images/stocks.jpg";
-import pokemonImg from "@images/pokemon.jpg";
-import blackjackImg from "@images/blackjack.jpg";
-import MeCard from "@/components/MeCard";
+// images
+import chessImg from "@images/chess.png";
+import charSheetImg from "@images/dnd.png";
+import rpsImg from "@images/rps.png";
+import stocksImg from "@images/stocks.png";
+import pokemonImg from "@images/pokemon.png";
+import blackjackImg from "@images/blackjack.png";
+import portfolioImg from "@images/portfolio.png";
 
+// components
+import MeCard from "@/components/MeCard";
 import ProjectCard from "@/components/ProjectCard";
-import BackgroundFloaters from "@/components/BackgroundFloaters";
-import BackgroundPairs from "@/components/BackgroundPairs";
 import BackgroundCodeBlock from "@/components/BackgroundCodeBlock/BackgroundCodeBlock";
+import SineWave from "@/components/SineWave";
 
 export default function Home() {
   return (
     <main className="w-full">
       <section
-        className={`bg-maindark flex flex-col items-center text-accentlavender ${font.className} h-screen justify-center overflow-hidden`}
+        className={`flex flex-col items-center bg-maindark text-accentlavender ${font.className} h-screen justify-center overflow-hidden`}
       >
-        <div className="h-full w-full overflow-hidden"></div>
         <MeCard />
       </section>
       <section
-        className={`flex w-full flex-col items-center gap-12 ${font.className} text-mainorange bg-secondarydarker h-[110vh] justify-center gap-12 overflow-hidden py-20`}
+        className={`flex w-full flex-col items-center ${font.className} h-[110vh] justify-center gap-12 overflow-hidden bg-secondarydarker py-20 text-mainorange`}
       >
-        <div className="z-10 px-12 py-8 text-8xl">
-          EXPERIENCE<span className="animate-blink text-8xl">&#9608;</span>
-        </div>
-        <div className="flex h-full w-full content-center items-center justify-center">
-          <div className="z-100 flex w-7/12 max-w-[1020px] flex-col items-center gap-8 px-40">
+        <div className="z-10 text-8xl">EXPERIENCE</div>
+        <div className="flex h-full w-full items-center justify-center">
+          <div className="flex w-4/12 max-w-[1020px] flex-col items-center gap-8 border-2 border-mainorange">
             <div className="relative grid w-full grid-cols-[20%_80%] items-center gap-8 px-12 py-8">
               <img
                 src="/images/uci.jpg"
                 alt=""
-                className="w-sm h-full rounded-md"
+                className="h-full w-full rounded-md"
               />
               <div className="flex h-full w-full flex-col justify-center">
-                <div className="mb-2 text-3xl">
+                <div className="mb-2 flex gap-4 text-3xl">
+                  <span className="text-white">&#62;</span>
                   University of California, Irvine
                 </div>
                 <div>2016 - 2020</div>
@@ -55,10 +55,12 @@ export default function Home() {
               <img
                 src="/images/eq.jpg"
                 alt=""
-                className="w-sm h-full rounded-md"
+                className="h-full w-full rounded-md"
               />
-              <div className="flex h-full w-full flex-col">
-                <div className="mb-2 text-3xl">eQ Technologic </div>
+              <div className="flex h-full w-full flex-col justify-center">
+                <div className="mb-2 flex gap-4 text-3xl">
+                  <span className="text-white">&#62;</span>eQ Technologic{" "}
+                </div>
                 <div>October 2020 - August 2022</div>
                 <div>Software Engineer - Level 2</div>
                 <div>Java, JavaScript, Python, MySQL</div>
@@ -68,10 +70,12 @@ export default function Home() {
               <img
                 src="/images/amazon.png"
                 alt=""
-                className="w-sm h-full rounded-md"
+                className="h-full w-full rounded-md"
               />
               <div>
-                <div className="mb-2 text-3xl">Amazon Lab126</div>
+                <div className="mb-2 flex gap-4 text-3xl">
+                  <span className="text-white">&#62;</span>Amazon Lab126
+                </div>
                 <div>August 2022 - June 2023</div>
                 <div>SDE - Level 4</div>
                 <div>Java, C++, Android</div>
@@ -84,20 +88,17 @@ export default function Home() {
           strNum={0}
         ></BackgroundCodeBlock>
         <BackgroundCodeBlock
-          twClasses="right-52 text-[#ac5c10]"
+          twClasses="right-0 text-[#ac5c10]"
           strNum={1}
         ></BackgroundCodeBlock>
       </section>
       <section
-        className={`relative flex w-screen flex-col items-center gap-12 ${font.className} bg-maindarker z-10 h-screenx1_5 min-h-screen justify-center gap-12 overflow-hidden bg-cover py-32`}
+        className={`bg-cooldark relative z-10 flex h-[135vh] w-full flex-col items-center justify-center gap-12 overflow-hidden bg-cover py-20 ${font.className}`}
       >
-        <BackgroundFloaters />
-        <BackgroundPairs />
-
-        <div className="text-accentgreen z-10 text-8xl">PROJECTS</div>
+        <div className="text-coolgrey z-10 text-8xl">PROJECTS</div>
         <div
           id="CardBox"
-          className="relative grid h-full w-3/5 grid-cols-2 justify-items-center gap-4"
+          className="border-coolgrey relative z-10 grid h-full w-2/3 grid-cols-2 justify-items-center gap-6 overflow-hidden border-2 px-32 py-20"
         >
           <ProjectCard image={chessImg} title={"Chess Game"} />
           <ProjectCard image={pokemonImg} title={"Pokemon Tinder Clone"} />
@@ -111,11 +112,10 @@ export default function Home() {
             image={stocksImg}
             title={"Live Stock Tickers with (Fake) Purchases/Portfolio"}
           />
-          <ProjectCard
-            image={rpsImg}
-            title={"Multiplayer Rock Paper Scissors"}
-          />
-          <ProjectCard image={rpsImg} title={"This Website!"} />
+          <ProjectCard image={portfolioImg} title={"This Website!"} />
+
+          <SineWave twClasses="top-0 " />
+          <SineWave twClasses="bottom-0 rotate-180" />
         </div>
       </section>
     </main>

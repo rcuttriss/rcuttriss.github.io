@@ -163,6 +163,8 @@ const config: Config = {
         mainorange: "#fd981d",
         secondarydark: "#7f4c18",
         secondarydarker: "#3d2e1c",
+        coolgrey: "#c0fcfd",
+        cooldark: "#10110c",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

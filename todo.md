@@ -1,0 +1,4 @@
+- make buttons actually do things
+- make project cards actually do things
+- decide multipage or single page
+- revamp project section (simple icons instead of pics??)
