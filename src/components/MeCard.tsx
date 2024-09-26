@@ -219,15 +219,13 @@ function MeCard({}: Props) {
         </div>
         <div className="mt-4 flex h-20 w-full items-center justify-start gap-2">
           <a
-            className="flex h-2/3 w-1/2 items-center justify-center"
+            className="flex h-2/3 w-full items-center justify-center gap-3 rounded-none bg-secondarypurple text-2xl text-white hover:rounded-sm hover:bg-accentgreen hover:text-black"
             href="files/RobertCuttrissResume2024.pdf"
             download={"RobertCuttrissResume2024.pdf"}
             target="_blank"
           >
-            <Button className="flex h-full w-full items-center justify-center gap-2 rounded-none bg-secondarypurple text-2xl hover:rounded-sm hover:bg-accentgreen hover:text-black">
-              <FontAwesomeIcon icon={faDownload} className="h-5/6" />
-              <span>Download Resume (.pdf)</span>
-            </Button>
+            <FontAwesomeIcon icon={faDownload} className="h-2/3" />
+            <span>Download Resume (.pdf)</span>
           </a>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex h-2/3 w-1/5 items-center justify-center bg-darkergreen text-white transition-colors hover:rounded-sm hover:bg-red-600 hover:text-maindarker">

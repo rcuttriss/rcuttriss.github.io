@@ -8,8 +8,8 @@ type Props = {
 function SineWaveComponent({ twClasses }: Readonly<Props>) {
   const blockChar: string = "█";
   const [sineWaveDivs, setSineWaveDivs] = useState<JSX.Element[]>([]);
-  const waveHeight: number = 25; // Maximum height of the wave
-  const waveWidth: number = 180; // Number of columns in the wave (how wide it is)
+  const waveHeight: number = 28; // Maximum height of the wave
+  const waveWidth: number = 200; // Number of columns in the wave (how wide it is)
 
   const makeSineWaveDivs = () => {
     // Loop over a range of points to generate the sine wave
@@ -45,7 +45,7 @@ function SineWaveComponent({ twClasses }: Readonly<Props>) {
   }, []);
 
   return (
-    <div className={`text-coolgrey absolute flex ${twClasses}`}>
+    <div className={`absolute flex text-coolgrey ${twClasses}`}>
       {sineWaveDivs}
     </div>
   );
