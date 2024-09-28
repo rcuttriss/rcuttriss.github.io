@@ -24,7 +24,7 @@ export default function RootLayout({
     >
       <a
         href="/#experienceSection"
-        className="absolute left-20 top-16 flex h-[50px] w-[150px] items-center justify-center gap-2 px-4"
+        className="absolute left-2 top-2 flex h-[50px] w-[150px] items-center justify-center gap-2 px-4 lg:left-20 lg:top-16"
       >
         <FontAwesomeIcon icon={faChevronLeft} className="h-5 w-5" />
         <span className="text-2xl">Back</span>
