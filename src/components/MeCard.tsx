@@ -95,13 +95,13 @@ function MeCard({}: Props) {
   return (
     <div
       id="meCard"
-      className={`absolute grid h-2/3 w-2/3 grid-cols-[40%,60%] items-center justify-center text-maingreen`}
+      className={`absolute grid w-full items-center justify-center overflow-hidden text-maingreen md:w-2/3 md:grid-cols-1 md:grid-rows-2 lg:h-2/3 lg:grid-cols-[40%,60%] lg:grid-rows-1`}
     >
       <div
         id="asciiArt"
-        className="flex h-full w-full animate-float-still items-center justify-center overflow-hidden text-[9px]"
+        className="flex h-full w-full min-w-[500px] animate-float-still items-center justify-center"
       >
-        <pre className="animate-background-pan bg-gradient-to-r from-maingreen via-white to-maingreen bg-[length:100%] bg-clip-text text-transparent">
+        <div className="animate-background-pan bg-gradient-to-r from-maingreen via-white to-maingreen bg-[length:100%] bg-clip-text text-[.35rem] text-transparent transition-all md:text-[.4rem] lg:text-xs">
           :::::::::::::::::::::::::::::::::::::...............................................................
           <br />
           :::::::::::::::::::::::::::::::::::::::.............................................................
@@ -189,7 +189,7 @@ function MeCard({}: Props) {
           <br />
           -------------------------------------------------:::::::::::::::::::::::::::::::::::::::::::::::::::
           <br />
-        </pre>
+        </div>
       </div>
       <div className="flex h-full w-full flex-col justify-center px-20">
         <div className="flex gap-4 text-5xl">
@@ -210,26 +210,30 @@ function MeCard({}: Props) {
         <div
           id="myDesc"
           data-str="Backend Software Engineer with 3 years of experience specializing in Python, Java, and C++. Proven track record in improving efficiency and accuracy at Amazon Lab126. Actively expanding skill set into front-end technologies with hands-on projects."
-          className="my-4 flex bg-white bg-clip-text text-2xl text-maingreen"
+          className="my-4 flex bg-white bg-clip-text px-12 text-sm text-maingreen sm:text-2xl"
         >
           Pthnown Ziwndhre Whfyuehr odwp 3 lfghe xx irthwemdhq irthwemdhqdw lo
           Mfhown, mfyt, lahs J++. Mlfmen klfth mfueopq lz mdheytiop irthwemdhq
           but majdhrjw hg Gjghf Kww126. Ukghuieu lakdyeteq nbmgh poi fhqp
           hxyct-hjd plahfgteryux mnbh ghty-ii bdteghqu.
         </div>
-        <div className="mt-4 flex h-20 w-full items-center justify-start gap-2">
+        <div className="mt-4 grid h-20 w-full grid-cols-3 grid-rows-2 items-center justify-start gap-2 md:grid-cols-6 md:grid-rows-1">
           <a
-            className="flex h-2/3 w-full items-center justify-center gap-3 rounded-none bg-secondarypurple text-2xl text-white hover:rounded-sm hover:bg-accentgreen hover:text-black"
+            className="col-span-3 flex h-full w-full items-center justify-center gap-3 rounded-none bg-secondarypurple text-white hover:rounded-sm hover:bg-accentgreen hover:text-black sm:h-2/3 sm:min-w-[200px] sm:text-sm md:text-lg 2xl:text-2xl"
             href="files/RobertCuttrissResume2024.pdf"
             download={"RobertCuttrissResume2024.pdf"}
             target="_blank"
           >
-            <FontAwesomeIcon icon={faDownload} className="h-2/3" />
+            <FontAwesomeIcon
+              icon={faDownload}
+              className="sm:min-h-[35px] lg:h-[2vw]"
+            />
             <span>Download Resume (.pdf)</span>
           </a>
+
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex h-2/3 w-1/5 items-center justify-center bg-darkergreen text-white transition-colors hover:rounded-sm hover:bg-red-600 hover:text-maindarker">
-              <FontAwesomeIcon icon={faEnvelope} className="h-[70%]" />
+            <DropdownMenuTrigger className="flex h-full w-full min-w-[68px] items-center justify-center bg-darkergreen text-white transition-colors hover:rounded-sm hover:bg-red-600 hover:text-maindarker sm:h-2/3">
+              <FontAwesomeIcon icon={faEnvelope} className="h-2/3" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-maindarker text-maingreen">
               <DropdownMenuItem
@@ -254,21 +258,21 @@ function MeCard({}: Props) {
 
           <a
             href="https://github.com/rcuttriss"
-            className="h-2/3 w-1/5"
+            className="h-full sm:h-2/3"
             target="_blank"
           >
             <Button className="h-full w-full rounded-none bg-darkergreen hover:rounded-sm hover:bg-white hover:text-maindarker">
-              <FontAwesomeIcon icon={faGithub} className="h-full w-full" />
+              <FontAwesomeIcon icon={faGithub} className="h-full" />
             </Button>
           </a>
 
           <a
             href="https://www.linkedin.com/in/rcuttriss/"
-            className="h-2/3 w-1/5"
+            className="h-full sm:h-2/3"
             target="_blank"
           >
             <Button className="h-full w-full rounded-none bg-darkergreen hover:rounded-sm hover:bg-[#2596be] hover:text-maindarker">
-              <FontAwesomeIcon icon={faLinkedin} className="h-full w-full" />
+              <FontAwesomeIcon icon={faLinkedin} className="h-full" />
             </Button>
           </a>
         </div>
